@@ -1,8 +1,31 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MIT License
+
+% Copyright (c) 2018 Johanan Idicula
+
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % McGill Term Paper Template
 %
 % 
-% This is a title page template which be used for articles & reports.
+% This is a title page template which is used for articles & reports.
 % 
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -23,6 +46,7 @@
 \usepackage{siunitx}
 \DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
 \DeclareSIUnit\Molar{\textsc{m}}
+\usepackage{mhchem}
 \usepackage{pdfpages}
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage{textcomp}
@@ -34,12 +58,12 @@
 	pdfmenubar=true,        % show Acrobat's menu?
 	pdffitwindow=false,     % window fit to page when opened
 	pdfstartview={FitH},    % fits the width of the page to the window
-	pdftitle={},    % title
+	pdftitle={Term Paper Template},    % title
 	pdfauthor={Johanan Idicula},     % author
 	pdfsubject={},   % subject of the document
 	pdfcreator={Johanan Idicula},   % creator of the document
 	pdfproducer={Johanan Idicula}, % producer of the document
-	pdfkeywords={}, % list of keywords
+	pdfkeywords={template, example, latex}, % list of keywords
 	pdfnewwindow=true,      % links in new PDF window
 	colorlinks=true,       % false: boxed links; true: colored links
 	linkcolor=cyan,          % color of internal links (change box color with linkbordercolor)
@@ -60,13 +84,13 @@
 
 \begin{document}
 
-\title{\textbf{TITLE}}
+\title{\textbf{\LaTeX{} Term Paper Template}}
 
 \date{\today}
 \author{
 		Johanan Idicula \\
 		\href{mailto:johanan.idicula@mail.mcgill.ca}{johanan.idicula@mail.mcgill.ca} \\
-		Ehrlicher Lab
+		\href{https://github.com/jidicula/latex_templates}{github.com/jidicula/latex\_templates}
 		 }
 
 \maketitle
@@ -76,8 +100,8 @@
 \pagestyle{fancy}
 \fancyhf{}
 \setlength\headheight{15pt}
-%\fancyhead[R]{Biological and Active Materials Lab}
-%\fancyhead[L]{Johanan Idicula}
+\fancyhead[R]{BAM Lab}
+\fancyhead[L]{Johanan Idicula}
 \fancyhead[C]{\thetitle}
 \fancyfoot[C]{\thepage}
 %----------------------------------------------------------------------------
@@ -95,7 +119,47 @@
 %----------------------------------------------------------------------------
 % BODY
 %----------------------------------------------------------------------------
-%% \section{}
+\section{SI Units}
+
+The package \texttt{siunitx} allows you to correctly use SI units (like degrees Celsius). You can do proper SI formatting with \texttt{\textbackslash SI\{1\}\{\textbackslash meter\}} to render as \SI{1}{\meter}. See \href{http://ctan.mirror.rafal.ca/macros/latex/contrib/siunitx/siunitx.pdf}{the siunitx documentation} for more details. I've also included the molar symbol as a special command: \texttt{\textbackslash SI\{1\}\{\textbackslash Molar\}} becomes \SI{1}{\Molar}.
+
+\section{Chemical equations}
+
+The package \texttt{mhchem} allows you to make chemical formula, like \ce{MgCl2}. The full documentation is available \href{ftp://www.ctan.org/tex-archive/macros/latex/contrib/mhchem/mhchem.pdf}{here}.
+
+\section{Figures}
+I've included a bunch of figure snippets at the end of the source for this file. The best practice is to organize your images in a \texttt{./img/} directory. You can then link to a figure by referencing the label in \verb|\ref{fig:figlabel}|. For example, we plate our cells on a soft silicone substrate embedded with fluorescent beads for traction force microscopy, shown in Figure \ref{fig:TFM}. You can read more about cross-referencing \href{https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing}{here}.
+
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[width=0.29\textwidth]{img/Composite_scalebar_pos88}
+  \end{center}
+  \caption{HEK 293 cell transfected with ACTN4-hGFP and Nuc7-EBFP plated on a \SI{10}{\kilo\pascal} PDMS substrate embedded with a monolayer of poly methylmethacrylate DiI-core beads.}
+  \label{fig:TFM}
+\end{figure}
+
+%\begin{wrapfigure}{r}{0.30\textwidth}
+%	\vspace{-40pt}
+%	\begin{center}
+%		\includegraphics[width=0.29\textwidth]{file_name}
+%	\end{center}
+%	\vspace{-20pt}
+%	\caption{}
+%	\label{label:file_name}
+%\end{wrapfigure}
+
+\section{Citations}
+You can easily cite sources using the cite keys for the entries in your \texttt{.bib} file. The bibliography styles are set and the bibliography is generated using
+\begin{verbatim}
+\bibliographystyle{unsrt}
+\bibliography{term_paper}
+\end{verbatim}
+
+at location where you want your bibliography to be placed.
+
+Here's an example:
+
+My lab developed a technique for traction force microscopy on soft silicone substrates \cite{Yoshie:2018aa}. Deformation has been observed to be the independent variable in mechanotransduction \cite{Tajik_2016,Ehrlicher_2015}.
 
 \bibliographystyle{unsrt}
 \bibliography{term_paper}
