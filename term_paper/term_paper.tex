@@ -1,6 +1,6 @@
 
   %% term_paper.tex
-  %% Copyright 2018 Johanan Idicula
+  %% Copyright 2019 Johanan Idicula
   %
   % This work may be distributed and/or modified under the
   % conditions of the LaTeX Project Public License, either version 1.3
@@ -18,16 +18,18 @@
   % img/Composite_scalebar_pos88.png
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % McGill Term Paper Template
 %
-% 
+%
 % This is a title page template which is used for articles & reports.
-% 
-% 
+%
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[titlepage,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[margin=1in]{geometry}
 \usepackage[myheadings]{fullpage}
 % Uncomment next 2 lines to use TeX Gyre Heros sans serif
@@ -40,7 +42,7 @@
 \usepackage[english]{babel}
 \usepackage{sectsty}
 \usepackage{lipsum}
-\usepackage{siunitx}
+\usepackage[binary-units=true]{siunitx}
 \DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
 \DeclareSIUnit\Molar{M}
 \usepackage{mhchem}
@@ -206,7 +208,7 @@ My lab developed a technique for traction force microscopy on soft silicone subs
 %	\begin{tabular}{cccccc}
 %	\toprule
 %	\multicolumn{2}{c} {Pearson's correlation test} & \multicolumn{4}{c} {Independent t-test} \\
-%	\midrule	
+%	\midrule
 %	\multicolumn{2}{c} {Gender} & \multicolumn{2}{c} {Activity level} & \multicolumn{2}{c} {Gender} \\
 %	\midrule
 %	Males & Females & 1st level & 6th level & Males & Females \\
